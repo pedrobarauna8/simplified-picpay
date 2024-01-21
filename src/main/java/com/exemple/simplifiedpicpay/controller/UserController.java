@@ -1,6 +1,6 @@
 package com.exemple.simplifiedpicpay.controller;
 
-import com.exemple.simplifiedpicpay.domain.user.UserDTO;
+import com.exemple.simplifiedpicpay.domain.dto.UserDTO;
 import com.exemple.simplifiedpicpay.domain.user.User;
 import com.exemple.simplifiedpicpay.exception.BusinessErrorException;
 import com.exemple.simplifiedpicpay.service.UserService;
