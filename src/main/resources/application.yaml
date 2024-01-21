@@ -16,6 +16,24 @@ spring:
         hibernate:
             ddl-auto: create-drop
         show-sql: true
+    kafka:
+        producer:
+            bootstrap-servers: 127.0.0.1:9092
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            group-id: group_id
+
+topic:
+    name:
+        producer: topico.teste
+
+auto:
+    create:
+        topics:
+            enable: true
 
 server:
-    port: 8080
+    port: 8085
+
+url:
+    auth-url: https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc

@@ -1,5 +1,6 @@
 package com.exemple.simplifiedpicpay.domain.user;
 
+import com.exemple.simplifiedpicpay.domain.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

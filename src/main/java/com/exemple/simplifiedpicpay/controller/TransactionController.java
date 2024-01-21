@@ -1,6 +1,6 @@
 package com.exemple.simplifiedpicpay.controller;
 
-import com.exemple.simplifiedpicpay.domain.TransactionDTO;
+import com.exemple.simplifiedpicpay.domain.dto.TransactionDTO;
 import com.exemple.simplifiedpicpay.service.AuthService;
 import com.exemple.simplifiedpicpay.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
