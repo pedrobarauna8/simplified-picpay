@@ -10,10 +10,11 @@ Requisitos de produto
 	- No recebimento de pagamento, o usuário ou lojista precisa receber notificação, usar a outra API
 
 
-Requisitos da arquetetura
+Requisitos de arquetetura
 
 	- RESTFull
 	- Testes de integraçao com as 2 apis
 	- Dockerizada
 	- Deploy na AWS
-![Desafio Back-end PicPay](https://github.com/pedrobarauna8/simplifiedpicpay/assets/81633121/02c29605-6ba7-4848-ab51-fe6048e3ae3a)
+
+![Desafio Back-end PicPay](https://github.com/pedrobarauna8/simplified-picpay/assets/81633121/0352539a-8c28-46b5-9246-815c0f516f02)
