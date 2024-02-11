@@ -1,6 +1,6 @@
 package com.exemple.simplifiedpicpay.respositories;
 
-import com.exemple.simplifiedpicpay.domain.ApiUser;
+import com.exemple.simplifiedpicpay.domain.apiUser.ApiUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

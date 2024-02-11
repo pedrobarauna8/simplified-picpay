@@ -4,6 +4,7 @@ import com.exemple.simplifiedpicpay.domain.dto.UserDTO;
 import com.exemple.simplifiedpicpay.domain.user.User;
 import com.exemple.simplifiedpicpay.exception.BusinessErrorException;
 import com.exemple.simplifiedpicpay.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/createUser")
-    public ResponseEntity<User> createUser(@RequestBody UserDTO request) throws BusinessErrorException {
+    public ResponseEntity<User> createUser(@RequestBody @Valid UserDTO request) throws BusinessErrorException {
         var response = userService.createUser(request);
         return ResponseEntity.ok(response);
         //TODO IMPLEMENTAR HATEOAS

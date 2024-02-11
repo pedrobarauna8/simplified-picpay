@@ -1,4 +1,4 @@
-package com.exemple.simplifiedpicpay;
+package com.exemple.simplifiedpicpay.security;
 
 import com.exemple.simplifiedpicpay.respositories.ApiUserRepository;
 import com.exemple.simplifiedpicpay.service.TokenService;

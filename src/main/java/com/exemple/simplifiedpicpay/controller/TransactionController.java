@@ -3,6 +3,7 @@ package com.exemple.simplifiedpicpay.controller;
 import com.exemple.simplifiedpicpay.domain.dto.TransactionDTO;
 import com.exemple.simplifiedpicpay.service.AuthenticationService;
 import com.exemple.simplifiedpicpay.service.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class TransactionController {
     private AuthenticationService authenticationService;
 
     @PostMapping
-    public ResponseEntity<Void> transaction(@RequestBody TransactionDTO request) {
+    public ResponseEntity<Void> transaction(@RequestBody @Valid TransactionDTO request) {
         transactionService.transfer(request);
         return ResponseEntity.ok().build();
     }

@@ -1,6 +1,6 @@
 package com.exemple.simplifiedpicpay.handler;
 
-import com.exemple.simplifiedpicpay.domain.Error;
+import com.exemple.simplifiedpicpay.domain.dto.ErrorDTO;
 import com.exemple.simplifiedpicpay.exception.BusinessErrorException;
 import jakarta.persistence.EntityNotFoundException;
 import org.apache.catalina.connector.RequestFacade;
@@ -20,8 +20,8 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 public class ExceptionControllerHandler {
 
     @ExceptionHandler(BusinessErrorException.class)
-    public ResponseEntity<Error> businessExceptionHandler(BusinessErrorException e, WebRequest request) {
-        var error = new Error(
+    public ResponseEntity<ErrorDTO> businessExceptionHandler(BusinessErrorException e, WebRequest request) {
+        var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 BAD_REQUEST.value(),
                 BAD_REQUEST.toString(),
@@ -31,8 +31,8 @@ public class ExceptionControllerHandler {
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<Error> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException e, RequestFacade request){
-        var error = new Error(
+    public ResponseEntity<ErrorDTO> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException e, RequestFacade request){
+        var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 BAD_REQUEST.value(),
                 BAD_REQUEST.getReasonPhrase(),
@@ -42,8 +42,8 @@ public class ExceptionControllerHandler {
     }
 
     @ExceptionHandler(NoSuchElementException.class)
-    public ResponseEntity<Error> noSuchElementException(NoSuchElementException e, RequestFacade request){
-        var error = new Error(
+    public ResponseEntity<ErrorDTO> noSuchElementException(NoSuchElementException e, RequestFacade request){
+        var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 BAD_REQUEST.value(),
                 BAD_REQUEST.getReasonPhrase(),
@@ -53,13 +53,13 @@ public class ExceptionControllerHandler {
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<Error> entityNotFoundExceptionHandler() {
+    public ResponseEntity<ErrorDTO> entityNotFoundExceptionHandler() {
         return ResponseEntity.notFound().build();
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Error> genericExceptionHandler(Exception e, RequestFacade request) {
-        var error = new Error(
+    public ResponseEntity<ErrorDTO> genericExceptionHandler(Exception e, RequestFacade request) {
+        var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 INTERNAL_SERVER_ERROR.value(),
                 INTERNAL_SERVER_ERROR.toString(),

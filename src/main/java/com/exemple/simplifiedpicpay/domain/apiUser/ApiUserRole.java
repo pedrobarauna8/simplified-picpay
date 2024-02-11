@@ -1,4 +1,4 @@
-package com.exemple.simplifiedpicpay.domain;
+package com.exemple.simplifiedpicpay.domain.apiUser;
 
 public enum ApiUserRole {
 

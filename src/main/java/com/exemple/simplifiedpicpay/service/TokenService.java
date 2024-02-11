@@ -1,6 +1,6 @@
 package com.exemple.simplifiedpicpay.service;
 
-import com.exemple.simplifiedpicpay.domain.ApiUser;
+import com.exemple.simplifiedpicpay.domain.apiUser.ApiUser;
 
 public interface TokenService {
 
