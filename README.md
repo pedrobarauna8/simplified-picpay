@@ -17,4 +17,4 @@ Requisitos de arquetetura
 	- Dockerizada
 	- Deploy na AWS
 
-![Desafio Back-end PicPay](https://github.com/pedrobarauna8/simplified-picpay/assets/81633121/1d655036-fd65-49a2-ab30-6919cdd7fbd6)
+![Desafio Back-end PicPay](https://github.com/pedrobarauna8/simplified-picpay/assets/81633121/0352539a-8c28-46b5-9246-815c0f516f02)
