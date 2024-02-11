@@ -1,7 +1,7 @@
 package com.exemple.simplifiedpicpay.controller;
 
 import com.exemple.simplifiedpicpay.domain.dto.TransactionDTO;
-import com.exemple.simplifiedpicpay.service.AuthService;
+import com.exemple.simplifiedpicpay.service.AuthenticationService;
 import com.exemple.simplifiedpicpay.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @Autowired
-    private AuthService authService;
+    private AuthenticationService authenticationService;
 
     @PostMapping
     public ResponseEntity<Void> transaction(@RequestBody TransactionDTO request) {

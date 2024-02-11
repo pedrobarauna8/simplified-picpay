@@ -1,5 +1,5 @@
 package com.exemple.simplifiedpicpay.service;
 
-public interface AuthService {
+public interface AuthenticationService {
     public Boolean isAuthenticatedUser();
 }

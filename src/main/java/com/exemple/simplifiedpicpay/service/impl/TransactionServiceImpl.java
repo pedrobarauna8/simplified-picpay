@@ -6,7 +6,7 @@ import com.exemple.simplifiedpicpay.domain.user.UserType;
 import com.exemple.simplifiedpicpay.exception.BusinessErrorException;
 import com.exemple.simplifiedpicpay.respositories.TransactionRepository;
 import com.exemple.simplifiedpicpay.respositories.UserRepository;
-import com.exemple.simplifiedpicpay.service.AuthService;
+import com.exemple.simplifiedpicpay.service.AuthenticationService;
 import com.exemple.simplifiedpicpay.service.NotificationService;
 import com.exemple.simplifiedpicpay.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
     private NotificationService notificationService;
 
     @Autowired
-    private AuthService authService;
+    private AuthenticationService authenticationService;
 
     @Transactional
     public void transfer(TransactionDTO request) {
@@ -40,7 +40,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         if (payer.getBalance().subtract(request.value()).compareTo(BigDecimal.ZERO) < 0) throw new BusinessErrorException("User has no balance");
 
-        if (!authService.isAuthenticatedUser()) throw new BusinessErrorException("Transaction not authorized");
+        if (!authenticationService.isAuthenticatedUser()) throw new BusinessErrorException("Transaction not authorized");
 
         var transaction = new Transaction(request.value(), payer, payee);
 
