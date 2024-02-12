@@ -4,18 +4,17 @@ spring:
     profiles:
         active: dev
     datasource:
-        url: jdbc:h2:mem:testdb
-        driver-class-name: org.h2.Driver
-        username: sa
-        password:
-    h2:
-        console:
-            enabled: true
+        url: jdbc:postgresql://localhost:5432/postgres
+        driver-class-name: org.postgresql.Driver
+        username: myuser
+        password: mypassword
+
     jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
             ddl-auto: create-drop
         show-sql: true
+
     kafka:
         producer:
             bootstrap-servers: localhost:9092

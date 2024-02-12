@@ -35,6 +35,16 @@ services:
     environment:
       KAFKA_BROKERCONNECT: kafka:29092
 
+  postgres:
+      image: postgres:latest
+      restart: always
+      environment:
+        POSTGRES_DB: mydatabase
+        POSTGRES_USER: myuser
+        POSTGRES_PASSWORD: mypassword
+      ports:
+        - "5432:5432"
+
 networks:
   broker-kafka:
     driver: bridge
