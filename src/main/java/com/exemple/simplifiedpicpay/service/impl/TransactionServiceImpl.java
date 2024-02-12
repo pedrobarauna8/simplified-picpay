@@ -38,9 +38,11 @@ public class TransactionServiceImpl implements TransactionService {
 
         if (payer.getUserType().equals(UserType.PJ)) throw new BusinessErrorException("PF user only receive transfers");
 
-        if (payer.getBalance().subtract(request.value()).compareTo(BigDecimal.ZERO) < 0) throw new BusinessErrorException("User has no balance");
+        if (payer.getBalance().subtract(request.value()).compareTo(BigDecimal.ZERO) < 0)
+            throw new BusinessErrorException("User has no balance");
 
-        if (!authenticationService.isAuthenticatedUser()) throw new BusinessErrorException("Transaction not authorized");
+        if (!authenticationService.isAuthenticatedUser())
+            throw new BusinessErrorException("Transaction not authorized");
 
         var transaction = new Transaction(request.value(), payer, payee);
 

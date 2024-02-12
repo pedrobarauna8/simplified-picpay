@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @PostMapping("/createUser")
     public ResponseEntity<User> createUser(@RequestBody @Valid UserDTO request) throws BusinessErrorException {
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> createUser(@PathVariable("id") Long id){
+    public ResponseEntity<User> createUser(@PathVariable("id") Long id) {
         var response = userService.getUser(id);
         return ResponseEntity.ok(response);
     }

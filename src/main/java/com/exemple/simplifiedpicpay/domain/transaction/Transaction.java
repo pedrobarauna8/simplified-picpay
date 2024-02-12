@@ -2,19 +2,21 @@ package com.exemple.simplifiedpicpay.domain.transaction;
 
 import com.exemple.simplifiedpicpay.domain.user.User;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-@Entity(name = "transactions")
-@Table(name = "transactions")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Entity(name = "transactions")
+@Table(name = "transactions")
 public class Transaction {
 
     @Id
@@ -33,7 +35,7 @@ public class Transaction {
 
     private LocalDateTime timeStamps;
 
-    public Transaction(BigDecimal value, User payer, User payee){
+    public Transaction(BigDecimal value, User payer, User payee) {
         this.amount = value;
         this.sender = payer;
         this.receiver = payee;

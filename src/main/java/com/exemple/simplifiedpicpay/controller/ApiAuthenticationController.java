@@ -1,9 +1,9 @@
 package com.exemple.simplifiedpicpay.controller;
 
-import com.exemple.simplifiedpicpay.domain.dto.ApiAuthenticationDTO;
-import com.exemple.simplifiedpicpay.domain.dto.ApiRegisterDTO;
 import com.exemple.simplifiedpicpay.domain.apiUser.ApiUser;
+import com.exemple.simplifiedpicpay.domain.dto.ApiAuthenticationDTO;
 import com.exemple.simplifiedpicpay.domain.dto.ApiLoginResponseDTO;
+import com.exemple.simplifiedpicpay.domain.dto.ApiRegisterDTO;
 import com.exemple.simplifiedpicpay.respositories.ApiUserRepository;
 import com.exemple.simplifiedpicpay.service.TokenService;
 import jakarta.validation.Valid;

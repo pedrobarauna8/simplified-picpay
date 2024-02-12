@@ -17,13 +17,17 @@ import static com.exemple.simplifiedpicpay.utils.Utils.validateEmail;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public User createUser(UserDTO request) throws BusinessErrorException {
         validateDocument(request.document(), request.userType());
         validateEmail(request.email());
-        userRepository.findUserByDocument(request.document()).ifPresent(e -> {throw new DataIntegrityViolationException("User already castrated");});
-        userRepository.findUserByEmail(request.email()).ifPresent(e -> {throw new DataIntegrityViolationException("User already castrated");});
+        userRepository.findUserByDocument(request.document()).ifPresent(e -> {
+            throw new DataIntegrityViolationException("User already castrated");
+        });
+        userRepository.findUserByEmail(request.email()).ifPresent(e -> {
+            throw new DataIntegrityViolationException("User already castrated");
+        });
         return userRepository.save(new User(request));
     }
 

@@ -31,7 +31,7 @@ public class ExceptionControllerHandler {
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<ErrorDTO> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException e, RequestFacade request){
+    public ResponseEntity<ErrorDTO> dataIntegrityViolationExceptionHandler(DataIntegrityViolationException e, RequestFacade request) {
         var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 BAD_REQUEST.value(),
@@ -42,7 +42,7 @@ public class ExceptionControllerHandler {
     }
 
     @ExceptionHandler(NoSuchElementException.class)
-    public ResponseEntity<ErrorDTO> noSuchElementException(NoSuchElementException e, RequestFacade request){
+    public ResponseEntity<ErrorDTO> noSuchElementException(NoSuchElementException e, RequestFacade request) {
         var error = new ErrorDTO(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 BAD_REQUEST.value(),
