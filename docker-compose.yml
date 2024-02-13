@@ -23,6 +23,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_HEAP_OPTS: "-Xmx512M -Xms512M"
 
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
@@ -36,14 +37,14 @@ services:
       KAFKA_BROKERCONNECT: kafka:29092
 
   postgres:
-      image: postgres:latest
-      restart: always
-      environment:
-        POSTGRES_DB: mydatabase
-        POSTGRES_USER: myuser
-        POSTGRES_PASSWORD: mypassword
-      ports:
-        - "5432:5432"
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
 
 networks:
   broker-kafka:
