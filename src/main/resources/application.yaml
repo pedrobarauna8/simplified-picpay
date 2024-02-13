@@ -20,6 +20,10 @@ spring:
             value-serializer: org.apache.kafka.common.serialization.StringSerializer
             group-id: group_id
 
+springdoc:
+    version: openapi_3_0
+
+
 topic:
     name:
         producer: topico.teste
