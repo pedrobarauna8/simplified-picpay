@@ -1,7 +1,7 @@
 package com.exemple.simplifiedpicpay.controller;
 
 import com.exemple.simplifiedpicpay.domain.apiUser.ApiUser;
-import com.exemple.simplifiedpicpay.domain.dto.ApiAuthenticationDTO;
+import com.exemple.simplifiedpicpay.domain.dto.ApiLoginRequestDTO;
 import com.exemple.simplifiedpicpay.domain.dto.ApiLoginResponseDTO;
 import com.exemple.simplifiedpicpay.domain.dto.ApiRegisterDTO;
 import com.exemple.simplifiedpicpay.respositories.ApiUserRepository;
@@ -35,7 +35,7 @@ public class ApiAuthenticationController {
 
     @Operation(summary = "Login na API")
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid ApiAuthenticationDTO request){
+    public ResponseEntity login(@RequestBody @Valid ApiLoginRequestDTO request){
 
         var usernamePassword = new UsernamePasswordAuthenticationToken(request.login(), request.password());
         var auth = authenticationManager.authenticate(usernamePassword);

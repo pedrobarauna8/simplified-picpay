@@ -24,7 +24,6 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody @Valid UserDTO request) throws BusinessErrorException {
         var response = userService.createUser(request);
         return ResponseEntity.ok(response);
-        //TODO IMPLEMENTAR HATEOAS
     }
 
     @Operation(summary = "Obter um usuário por ID")

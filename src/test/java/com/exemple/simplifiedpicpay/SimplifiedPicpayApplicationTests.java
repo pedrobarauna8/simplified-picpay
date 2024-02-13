@@ -9,5 +9,4 @@ class SimplifiedPicpayApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
