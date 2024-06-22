@@ -1,12 +1,12 @@
 package com.exemple.simplifiedpicpay.controller;
 
-import com.exemple.simplifiedpicpay.domain.apiUser.ApiUser;
-import com.exemple.simplifiedpicpay.domain.apiUser.ApiUserRole;
-import com.exemple.simplifiedpicpay.domain.dto.ApiLoginRequestDTO;
-import com.exemple.simplifiedpicpay.domain.dto.ApiLoginResponseDTO;
-import com.exemple.simplifiedpicpay.domain.dto.ApiRegisterDTO;
-import com.exemple.simplifiedpicpay.respositories.ApiUserRepository;
-import com.exemple.simplifiedpicpay.service.TokenService;
+import com.exemple.simplifiedpicpay.app.controller.ApiAuthenticationController;
+import com.exemple.simplifiedpicpay.core.domain.apiUser.ApiUserEntity;
+import com.exemple.simplifiedpicpay.core.domain.apiUser.ApiUserRole;
+import com.exemple.simplifiedpicpay.app.dto.ApiLoginRequestDTO;
+import com.exemple.simplifiedpicpay.app.dto.ApiLoginResponseDTO;
+import com.exemple.simplifiedpicpay.core.domain.dto.ApiRegisterRequestDTO;
+import com.exemple.simplifiedpicpay.infra.respositories.ApiUserRepositoryImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -34,7 +34,7 @@ class ApiAuthenticationControllerTest {
     private TokenService service;
 
     @Mock
-    private ApiUserRepository repository;
+    private ApiUserRepositoryImpl repository;
 
     @Mock
     private UserDetails userDetails;
@@ -43,9 +43,9 @@ class ApiAuthenticationControllerTest {
     @DisplayName("Test login api with success")
     void loginTestCase1() {
         var request = new ApiLoginRequestDTO("user","password");
-        var usernamePassword = new UsernamePasswordAuthenticationToken(new ApiUser("", request.login(), request.password(), ApiUserRole.ADMIN), null);
+        var usernamePassword = new UsernamePasswordAuthenticationToken(new ApiUserEntity("", request.login(), request.password(), ApiUserRole.ADMIN), null);
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(usernamePassword);
-        when(service.generateToken(any(ApiUser.class))).thenReturn("");
+        when(service.getToken(any(ApiUserEntity.class))).thenReturn("");
         var response = controller.login(request);
         assertEquals(response, ResponseEntity.ok(new ApiLoginResponseDTO("")));
     }
@@ -53,7 +53,7 @@ class ApiAuthenticationControllerTest {
     @Test
     @DisplayName("Test register api with success")
     void registerTestCase1() {
-        var request = new ApiRegisterDTO("","",ApiUserRole.ADMIN);
+        var request = new ApiRegisterRequestDTO("","",ApiUserRole.ADMIN);
         var response = controller.register(request);
         assertEquals(response, ResponseEntity.ok().build());
     }
@@ -61,7 +61,7 @@ class ApiAuthenticationControllerTest {
     @Test
     @DisplayName("Test register api with when the api user already registered")
     void registerTestCase2() {
-        var request = new ApiRegisterDTO("","",ApiUserRole.ADMIN);
+        var request = new ApiRegisterRequestDTO("","",ApiUserRole.ADMIN);
         when(repository.findByLogin(request.login())).thenReturn(userDetails);
         var response = controller.register(request);
         assertEquals(response, ResponseEntity.badRequest().build());

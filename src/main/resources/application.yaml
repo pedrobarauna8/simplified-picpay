@@ -1,45 +1,45 @@
 spring:
-    application:
-        name: Simplified PicPay
-    profiles:
-        active: dev
-    datasource:
-        url: jdbc:postgresql://localhost:5432/postgres
-        driver-class-name: org.postgresql.Driver
-        username: myuser
-        password: mypassword
+  application:
+    name: Simplified PicPay
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: myuser
+    password: mypassword
 
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        show-sql: true
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
 
-    kafka:
-        producer:
-            bootstrap-servers: localhost:9092
-            key-serializer: org.apache.kafka.common.serialization.StringSerializer
-            value-serializer: org.apache.kafka.common.serialization.StringSerializer
-            group-id: group_id
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      group-id: group_id
 
 springdoc:
-    version: openapi_3_0
+  version: openapi_3_0
 
 
 topic:
-    name:
-        producer: topico.teste
+  name:
+    producer: topico.teste
 
 auto:
-    create:
-        topics:
-            enable: true
+  create:
+    topics:
+      enable: true
 
 server:
-    port: 80
+  port: 80
 
 url:
-    auth-url: https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc
+  auth-url: https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc
 
 api:
-    security:
-        token:
-            secret: ${JWT_SECRET:my-secrety-key}
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secrety-key}
