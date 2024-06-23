@@ -1,10 +1,12 @@
 package com.exemple.simplifiedpicpay.core.domain;
 
 import com.exemple.simplifiedpicpay.core.domain.user.UserType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.math.BigDecimal;
 
+@AllArgsConstructor
 @Getter
 public class User {
 

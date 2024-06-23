@@ -17,8 +17,6 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
     RestTemplate restTemplate;
     String url;
 
-    private static final String AUTORIZADO = "Autorizado";
-
     public AuthenticationProviderImpl(RestTemplate restTemplate,
                                       @Value("${url.auth-url}") String url) {
         this.restTemplate = restTemplate;
@@ -31,7 +29,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
         var body = new JSONObject(response.getBody());
 
-        if (response.getStatusCode().is2xxSuccessful() && (body.get("message").equals(AUTORIZADO))) {
+        var data = new JSONObject(body.get("data").toString());
+
+        if (response.getStatusCode().is2xxSuccessful() && (data.get("authorization").equals(TRUE))) {
             return TRUE;
         }
         return FALSE;
