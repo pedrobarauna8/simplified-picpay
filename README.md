@@ -18,3 +18,5 @@ Requisitos de arquetetura
 	- Deploy na AWS
 
 ![Desafio Back-end PicPay](https://github.com/pedrobarauna8/simplified-picpay/assets/81633121/72e47fde-86d5-4c63-912c-161b227c3124)
+
+Ref: https://github.com/PicPay/picpay-desafio-backend
